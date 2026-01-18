@@ -102,9 +102,9 @@
           <h3>Recent Tasks</h3>
           <ul class="list">
             <li *ngFor="let task of recentTasks">
-              <span [class]="task.status">{{ task.name }}</span>
+              <span [ngClass]="'status-' + task.status">{{ task.name }}</span>
               <small>{{ task.note }}</small>
-            </li>
+            </li>            
           </ul>
         </div>
       </div>

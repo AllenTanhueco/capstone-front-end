@@ -11,13 +11,13 @@ import { FormsModule } from '@angular/forms';
   styleUrls: ['./admin.component.css']
 })
 export class AdminComponent implements OnInit {
-  // Track if Admin button should be shown
+ 
   isAdmin: boolean = false;
 
   constructor(private router: Router) {}
 
   ngOnInit() {
-    // Check if current route is 'admin' (adjust the logic based on your routing setup)
+   
     this.isAdmin = this.router.url.includes('admin');
   }
 
@@ -58,22 +58,22 @@ export class AdminComponent implements OnInit {
     alert(`Marked as completed: ${record.name}`);
   }
 
-  // Method to calculate the total number of completed records
+  // completed records
   getTotalCompleted() {
     return this.pendingRecords.filter(record => record.status === 'completed').length;
   }
 
-  // Method to calculate the total number of pending records
+  // pending records
   getTotalPending() {
     return this.pendingRecords.filter(record => record.status === 'pending').length;
   }
 
-  // Method to get the total number of records
+  //  total number of records
   getTotalRecords() {
     return this.pendingRecords.length;
   }
 
-  // Method to get the total number of tasks
+  // total number of tasks
   getTotalTasks() {
     return this.recentTasks.length;
   }
