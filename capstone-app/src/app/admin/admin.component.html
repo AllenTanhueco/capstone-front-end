@@ -1,0 +1,113 @@
+<div class="app-container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+      </div>
+  
+      <a class="side-btn" routerLink="/home" routerLinkActive="active">
+        <i class="fas fa-house"></i>
+        <span>Home</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/documents" routerLinkActive="active">
+        <i class="fas fa-file"></i>
+        <span>Documents</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/hotline">
+        <i class="fas fa-phone"></i>
+        <span>Hotline</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/profile" routerLinkActive="active">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+  
+      <!-- Conditionally render Admin button -->
+      <a *ngIf="isAdmin" class="side-btn" routerLink="/admin" routerLinkActive="active">
+        <i class="fas fa-cogs"></i>
+        <span>Admin</span>
+      </a>
+    </aside>
+  
+    <!-- MAIN CONTENT -->
+    <div class="admin-container">
+      <h2 class="dashboard-title">Pending Record</h2>
+  
+      <!-- STATISTICS SECTION -->
+      <div class="statistics">
+        <div class="stat-card">
+          <h4>Total Records</h4>
+          <p>{{ getTotalRecords() }}</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Completed</h4>
+          <p>{{ getTotalCompleted() }}</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Pending</h4>
+          <p>{{ getTotalPending() }}</p>
+        </div>
+        <div class="stat-card">
+          <h4>Total Tasks</h4>
+          <p>{{ getTotalTasks() }}</p>
+        </div>
+      </div>
+  
+      <!-- PENDING RECORD TABLE -->
+      <div class="card">
+        <table class="records-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Class</th>
+              <th>Due Date</th>
+              <th>Owner</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of pendingRecords">
+              <td>{{ record.name }}</td>
+              <td>{{ record.class }}</td>
+              <td>{{ record.dueDate }}</td>
+              <td>{{ record.owner }}</td>
+              <td>
+                <button class="btn pending" (click)="markPending(record)">Pending</button>
+                <button class="btn record" (click)="markRecorded(record)">Record</button>
+                <button class="btn completed" (click)="markCompleted(record)">Completed</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  
+      <!-- RECENT RECORDS & TASKS -->
+      <div class="bottom-section">
+        <div class="card">
+          <h3>Recent Records</h3>
+          <ul class="list">
+            <li *ngFor="let rec of recentRecords">
+              📄 {{ rec.name }} <span>{{ rec.size }}</span>
+              <span class="badge">{{ rec.date }}</span>
+            </li>
+          </ul>
+        </div>
+  
+        <div class="card">
+          <h3>Recent Tasks</h3>
+          <ul class="list">
+            <li *ngFor="let task of recentTasks">
+              <span [class]="task.status">{{ task.name }}</span>
+              <small>{{ task.note }}</small>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  

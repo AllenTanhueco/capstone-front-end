@@ -1,0 +1,418 @@
+/* GLOBAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* APP LAYOUT */
+  .app-container {
+    display: flex;
+    min-height: 100vh;
+  }
+  
+  /* SIDEBAR */
+  .sidebar {
+    width: 120px;
+    background: #f7f7f7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 30px;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    border-right: 1px solid #ddd;
+    z-index: 100;
+  }
+  
+  .sidebar-logo img {
+    width: 80px;
+    margin-bottom: 25px;
+  }
+  
+  /* SIDEBAR BUTTONS */
+  .side-btn {
+    background: none;
+    border: none;
+    color: #df5757;
+    width: 100%;
+    padding: 35px 0;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    transition: background 0.3s;
+  }
+  
+  .side-btn i {
+    font-size: 24px;
+  }
+  
+  .side-btn:hover,
+  .side-btn.active {
+    background: rgba(223, 87, 87, 0.12);
+    font-weight: bold;
+  }
+  
+  /* MAIN CONTENT */
+  .landing-bg {
+    flex: 1;
+    position: relative;
+    background-color: #d3cdcd;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* WATERMARK */
+  .landing-bg::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url('/images/angeles_city_logo.png') center / 50% no-repeat;
+    opacity: 0.18;
+    pointer-events: none;
+    z-index: 0;
+    background-size: 40%;
+  }
+  
+  /* CAROUSEL */
+  .bg-carousel {
+    height: 550px;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .bg-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+  }
+  
+  .bg-slide.active {
+    opacity: 1;
+  }
+  
+  .bg-blur {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    filter: blur(25px);
+    opacity: 0.5;
+  }
+  
+  .bg-image {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* HEADER */
+  .landing-header {
+    text-align: center;
+    margin: 40px 0;
+    z-index: 10;
+  }
+  
+  .landing-header img {
+    width: 200px;
+  }
+  
+  .landing-header h1 {
+    font-size: 40px;
+    color: #b30000;
+  }
+  
+  .subtitle {
+    font-size: 40px;
+    font-weight: bold;
+  }
+  
+  /* HERO */
+  .hero {
+    background: #f44336;
+    color: #fff;
+    padding: 40px;
+    margin: 0 auto 50px;
+    width: 90%;
+    max-width: 1000px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .hero-img {
+    max-width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  /* FEATURES SECTION */
+.features {
+    display: flex;
+    justify-content: center;
+    gap: 200px; 
+    flex-wrap: wrap;
+    padding: 0 20px 60px; 
+    font-weight: bold;
+}
+  /* FEATURE CARDS */
+  .feature-card {
+    background: #f0f0f0;
+    width: 350px; 
+    padding: 50px 25px;
+    border-radius: 12px;
+    text-align: center;
+    border-top: 5px solid #f44336; 
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); 
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  
+  .feature-card h3 {
+    font-size: 35px; 
+    margin-bottom: 15px;
+    color: #b30000;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+  .feature-card p {
+    font-size: 24px;
+    color: #b30000;
+    line-height: 1.6;
+  }
+  
+  /* CLICKABLE CARD HOVER */
+  .feature-card.clickable {
+    cursor: pointer;
+  }
+  
+  .feature-card.clickable:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px rgba(241, 6, 6, 0.2);
+  }
+  
+  
+  /* FOOTER */
+  .landing-footer {
+    margin-top: auto;
+    padding: 30px;
+    text-align: center;
+    background: #f9f9f9;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* ========== RESPONSIVE ========== */
+  
+  /* MOBILE */
+  @media (max-width: 768px) {
+    .sidebar {
+      width: 90px;
+    }
+  
+    .side-btn {
+      padding: 20px 0;
+      font-size: 15px;
+    }
+  
+    .landing-header h1 {
+      font-size: 26px;
+    }
+  
+    .hero {
+      padding: 25px;
+    }
+  
+    .features {
+      flex-direction: column;
+    }
+  
+    .feature-card {
+      width: 100%; /* full width on mobile */
+      padding: 25px 20px;
+    }
+  }
+  
+  /* TABLET */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .sidebar {
+      width: 100px;
+    }
+  
+    .feature-card {
+      width:350px;      /* wider on tablet */
+      min-height: 150px; /* taller for more content */
+      padding: 38px 28px;
+  }
+  }
+  
+  /* CITIZEN CHARTER PAGE  */
+
+.charter-content {
+    max-width: 1100px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+    position: relative;
+    z-index: 20;
+    font-weight: bold;
+  }
+  
+  .charter-card {
+    background: #e0f000;
+    padding: 35px 30px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    border-left: 6px solid #b30000;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    font-weight: bold;
+  }
+  
+  .charter-card h2 {
+    font-size: 30px;
+    color: #e0f000;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  .charter-card h3 {
+    font-size: 22px;
+    color: #333;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  .charter-card p {
+    font-size: 22px;
+    line-height: 1.7;
+    color: #444;
+    font-weight: bold;
+  }
+  
+  .mission-list,
+  .service-list {
+    margin-top: 15px;
+    padding-left: 25px;
+  }
+  
+  .mission-list li,
+  .service-list li {
+    font-size: 22px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: #333;
+    position: relative;
+    font-weight: bold;
+  }
+  
+  /*bullet styling */
+  .mission-list li::marker,
+  .service-list li::marker {
+    color: #b30000;
+  }
+  
+/* Download */ 
+/* Download link styling */
+.download-link {
+    color: #b30000;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: color 0.2s;
+  }
+  
+  .download-link i {
+    font-size: 16px;
+  }
+  
+  .download-link:hover {
+    color: #f44336;
+    text-decoration: underline;
+  }
+  
+  
+  /*  TABLET  */
+  @media (max-width: 1024px) {
+    .charter-content {
+      max-width: 95%;
+    }
+  
+    .charter-card {
+      padding: 30px 25px;
+    }
+  
+    .charter-card h2 {
+      font-size: 26px;
+    }
+  
+    .charter-card h3 {
+      font-size: 20px;
+    }
+  
+    .charter-card p,
+    .mission-list li,
+    .service-list li {
+      font-size: 15px;
+    }
+  }
+  
+  /* MOBILE  */
+  @media (max-width: 768px) {
+    .charter-content {
+      padding: 0 15px;
+    }
+  
+    .charter-card {
+      padding: 22px 18px;
+      border-left-width: 4px;
+    }
+  
+    .charter-card h2 {
+      font-size: 22px;
+      text-align: center;
+    }
+  
+    .charter-card h3 {
+      font-size: 18px;
+    }
+  
+    .charter-card p,
+    .mission-list li,
+    .service-list li {
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+  
+    .mission-list,
+    .service-list {
+      padding-left: 20px;
+    }
+  }
+  
+  /*  MOBILE  */
+  @media (max-width: 480px) {
+    .charter-card h2 {
+      font-size: 20px;
+    }
+  
+    .charter-card h3 {
+      font-size: 17px;
+    }
+  
+    .charter-card p,
+    .mission-list li,
+    .service-list li {
+      font-size: 16px;
+    }
+  }
+  

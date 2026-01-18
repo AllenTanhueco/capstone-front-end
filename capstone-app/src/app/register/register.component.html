@@ -1,0 +1,53 @@
+<div class="page-container">
+    <div class="bg-image"></div>
+  
+    <main class="content-wrapper">
+      <div class="branding">
+        <h1 class="city-name">ANGELES CITY</h1>
+        <img src="/images/angeles_city_logo.png" alt="Angeles City Seal" class="logo">
+        <h2 class="form-title">CREATE YOUR ACCOUNT NOW</h2>
+      </div>
+  
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="signup-card">
+        <h3 class="signup-header">SIGN UP</h3>
+  
+        <div class="form-grid">
+          <div class="input-group">
+            <input type="text" formControlName="firstName" placeholder="FIRST NAME">
+          </div>
+          <div class="input-group">
+            <input type="text" formControlName="middleName" placeholder="MIDDLE NAME">
+          </div>
+          <div class="input-group">
+            <input type="text" formControlName="lastName" placeholder="LAST NAME">
+          </div>
+  
+          <div class="input-group">
+            <input type="text" formControlName="birthday" placeholder="BIRTHDAY">
+          </div>
+          <div class="input-group">
+            <input type="tel" formControlName="mobileNumber" placeholder="MOBILE NUMBER">
+          </div>
+  
+          <div class="input-group">
+            <input type="email" formControlName="email" placeholder="EMAIL">
+          </div>
+          <div class="input-group">
+            <input type="text" formControlName="address" placeholder="ADDRESS">
+          </div>
+  
+          <div class="input-group">
+            <input type="password" formControlName="password" placeholder="PASSWORD">
+          </div>
+          <div class="input-group">
+            <input type="password" formControlName="confirmPassword" placeholder="CONFIRM PASSWORD">
+          </div>
+        </div>
+  
+        <div class="actions">
+          <button type="submit" class="register-btn">REGISTER</button>
+          <p class="login-link">Already have an account? <a href="#">Log in</a></p>
+        </div>
+      </form>
+    </main>
+  </div>

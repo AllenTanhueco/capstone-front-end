@@ -1,0 +1,109 @@
+<div class="app-container">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+      </div>
+    
+
+ <!-- Home button as a proper router link -->
+ <a class="side-btn" routerLink="/" routerLinkActive="active">
+  <i class="fas fa-house"></i>
+  <span>Home</span>
+</a>
+<a class="side-btn" routerLink="/documents" routerLinkActive="active">
+  <i class="fas fa-file"></i>
+  <span>Documents</span>
+</a>
+
+<button class="side-btn">
+  <i class="fas fa-phone"></i>
+  <span>Hotline</span>
+</button>
+
+<a class="side-btn" routerLink="/documents" routerLinkActive="active">
+  <i class="fas fa-user"></i>
+  <span>Profile</span>
+</a>
+</aside>
+    <main class="landing-bg">
+  
+      <div class="bg-carousel">
+        <div class="bg-slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentIndex">
+          <div class="bg-blur" [style.backgroundImage]="'url(' + slide + ')'"></div>
+          <div class="bg-image" [style.backgroundImage]="'url(' + slide + ')'"></div>
+        </div>
+      </div>
+  
+      <header class="landing-header">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+        <h1>ANGELES CITY</h1>
+        <p class="subtitle">WELCOME ANGELEÑOS</p>
+      </header>
+  
+      <section class="announcements-page">
+        <div class="title-wrapper">
+          <h2 class="page-title"> <i class="fas fa-bell"></i> Latest Community Announcements </h2>
+  
+        <div *ngIf="announcements.length > 0; else noData" class="announcement-carousel">
+          <button class="arrow left" (click)="prevAnnouncement()">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+        
+          <div class="announcement-card active">
+            <img *ngIf="currentAnnouncement.image" [src]="currentAnnouncement.image" 
+                 alt="{{ currentAnnouncement.title }}" class="announcement-image" />
+            <div class="announcement-content">
+              <h3 class="announcement-title">{{ currentAnnouncement.title }}</h3>
+              <p class="announcement-date">{{ currentAnnouncement.date | date:'longDate' }}</p>
+              <p class="announcement-text">{{ currentAnnouncement.description }}</p>
+            </div>
+          </div>
+        
+          <button class="arrow right" (click)="nextAnnouncement()">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+        
+        <ng-template #noData>
+          <p class="text-center">No announcements available at the moment.</p>
+        </ng-template>
+        </div>
+      </section>
+      
+     <!-- FEATURES -->
+  <section class="features">
+  
+    <div
+      class="feature-card clickable"
+      routerLink="/announcements"
+    >
+      <h3>Announcements</h3>
+      <p>Stay updated with the latest city news and advisories.</p>
+    </div>
+  
+    <div
+    class="feature-card clickable"
+    routerLink="/citizen-charter"
+    >
+      <h3>Citizen’s Charter</h3>
+      <p>Apply for permits, licenses, and certificates online.</p>
+    </div>
+  
+    <div
+    class="feature-card clickable"
+    routerLink="/community"
+    >
+      <h3>Community</h3>
+      <p>Engage with programs and initiatives in your barangay.</p>
+    </div>
+  
+  </section>
+  
+      <footer class="landing-footer">
+        © 2026 Angeles City Government. All rights reserved.
+      </footer>
+  
+    </main>
+  </div>

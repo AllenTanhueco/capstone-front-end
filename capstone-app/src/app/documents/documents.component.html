@@ -1,0 +1,52 @@
+<div class="app-container">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img src="/images/angeles_city_logo.png" alt="Logo" />
+    </div>
+
+<!-- Home button as a proper router link -->
+<a class="side-btn" routerLink="/home" routerLinkActive="active">
+  <i class="fas fa-house"></i>
+  <span>Home</span>
+</a>
+
+<a class="side-btn" routerLink="/documents" routerLinkActive="active">
+  <i class="fas fa-file"></i>
+  <span>Documents</span>
+</a>
+
+<a class="side-btn" routerLink="/hotline">
+  <i class="fas fa-phone"></i>
+  <span>Hotline</span>
+</a>
+
+<a class="side-btn" routerLink="/profile" routerLinkActive="active">
+  <i class="fas fa-user"></i>
+  <span>Profile</span>
+</a>
+    
+  </aside>
+
+  <!-- DOCUMENTS CONTENT -->
+  <section class="documents-page">
+    <h2 class="page-title">Available Documents</h2>
+
+    <div class="documents-list">
+      <div *ngFor="let doc of documents" class="document-card">
+        <h3>{{ doc.name }}</h3>
+        <p>Click to view the document.</p>
+
+        <button class="view-btn" (click)="viewDocument(doc.file)">
+          View Document
+        </button>
+      </div>
+    </div>
+  </section>
+
+</div>

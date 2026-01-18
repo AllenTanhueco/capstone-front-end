@@ -1,0 +1,165 @@
+<div class="app-container">
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-logo">
+          <img src="/images/angeles_city_logo.png" alt="Logo" />
+        </div>
+      
+<!-- Home button as a proper router link -->
+<a class="side-btn" routerLink="/home" routerLinkActive="active">
+  <i class="fas fa-house"></i>
+  <span>Home</span>
+</a>
+
+<a class="side-btn" routerLink="/documents" routerLinkActive="active">
+  <i class="fas fa-file"></i>
+  <span>Documents</span>
+</a>
+
+<a class="side-btn" routerLink="/hotline">
+  <i class="fas fa-phone"></i>
+  <span>Hotline</span>
+</a>
+
+<a class="side-btn" routerLink="/profile" routerLinkActive="active">
+  <i class="fas fa-user"></i>
+  <span>Profile</span>
+</a>
+      </aside>
+  
+    <!-- MAIN CONTENT -->
+    <main class="landing-bg">
+      <!-- BACKGROUND CAROUSEL -->
+      <div class="bg-carousel">
+        <div
+          class="bg-slide"
+          *ngFor="let slide of slides; let i = index"
+          [class.active]="i === currentIndex"
+        >
+          <div
+            class="bg-blur"
+            [style.backgroundImage]="'url(' + slide + ')'"
+          ></div>
+          <div
+            class="bg-image"
+            [style.backgroundImage]="'url(' + slide + ')'"
+          ></div>
+        </div>
+      </div>
+  
+      <!-- HEADER -->
+      <header class="landing-header">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+        <h1>ANGELES CITY</h1>
+        <p class="subtitle">WELCOME ANGELEÑOS</p>
+      </header>
+  
+<!-- ================= CITIZEN CHARTER CONTENT ================= -->
+<section class="charter-content">
+
+    <!-- VISION & MISSION -->
+    <div class="charter-card">
+      <h2>Citizen’s Charter</h2>
+  
+      <h3>Vision Statement</h3>
+      <p>
+        By 2020, Angeles City is the heart and haven of quality
+        socio-economic services that are globally competitive and
+        environment friendly.
+      </p>
+  
+      <h3>Mission Statement</h3>
+      <p>To achieve this vision, we commit to:</p>
+  
+      <ul class="mission-list">
+        <li>
+          The delivery of prompt, responsive, effective and efficient
+          basic and social services with utmost respect, excellence,
+          integrity and sincerity guided by the principles of
+          transparency and accountability;
+        </li>
+        <li>
+          Unified and concerted efforts for customer satisfaction;
+        </li>
+        <li>
+          Develop and initiate socio-economic reforms to improve the
+          quality of lives of the Angeleños;
+        </li>
+        <li>
+          Constantly update the regulations and policies and ensure
+          strict implementation.
+        </li>
+      </ul>
+    </div>
+  
+    <!-- CIVIL DOCUMENTS -->
+    <div class="charter-card">
+      <h3>Birth Certificate & Other Civil Documents</h3>
+  
+      <ul class="service-list">
+        <li>Registration of Birth Certificate (On-Time Registration)</li>
+        <li>Registration of Death Certificate (On-Time Registration)</li>
+        <li>Registration of Marriage Certificate (On-Time Registration)</li>
+        <li>
+          Issuance of Certified True Copy of Birth, Marriage, Death and
+          Other Registry Documents
+        </li>
+        <li>Issuance of Marriage License</li>
+        <li>Delayed Registration of Birth Certificate</li>
+        <li>Delayed Registration of Marriage Certificate</li>
+        <li>Delayed Registration of Death Certificate</li>
+      </ul>
+    </div>
+  
+      <!-- CIVIL DOCUMENTS WITH DOWNLOADABLE LINKS -->
+      <div class="charter-card">
+        <h3>Birth Certificate & Other Civil Documents</h3>
+        <ul class="service-list">
+            <li *ngFor="let doc of documents">
+              {{ doc.name }} -
+              <a [href]="doc.file" download class="download-link">
+                Download <i class="fas fa-file-download"></i>
+              </a>
+            </li>
+          </ul>
+      </div>
+    </section>
+  
+      <!-- FEATURES -->
+      <section class="features">
+  
+        <div
+          class="feature-card clickable"
+          routerLink="/announcements"
+        >
+          <h3>Announcements</h3>
+          <p>Stay updated with the latest city news and advisories.</p>
+        </div>
+      
+        <div
+        class="feature-card clickable"
+        routerLink="/citizen-charter"
+        >
+          <h3>Citizen’s Charter</h3>
+          <p>Apply for permits, licenses, and certificates online.</p>
+        </div>
+      
+        <div
+        class="feature-card clickable"
+        routerLink="/community"
+        >
+          <h3>Community</h3>
+          <p>Engage with programs and initiatives in your barangay.</p>
+        </div>
+      
+      </section>
+  
+      <!-- FOOTER -->
+      <footer class="landing-footer">
+        © 2026 Angeles City Government. All rights reserved.
+      </footer>
+    </main>
+  </div>
+  
