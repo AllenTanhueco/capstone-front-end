@@ -30,20 +30,20 @@ export class AdminComponent implements OnInit {
   ];
 
   // Sample data for recent records
-  recentRecords = [
-    { name: 'Construction Confirmation.pdf', size: '3.2 MB', date: 'Today' },
-    { name: 'Cost calculation.xlsx', size: '1.1 MB', date: 'Today' },
-    { name: 'Development proposal.pdf', size: '2.7 MB', date: 'Today' },
-    { name: 'Purchase of equipment.docx', size: '2.7 MB', date: 'Yesterday' }
-  ];
+ //  recentRecords = [
+  //  { name: 'Construction Confirmation.pdf', size: '3.2 MB', date: 'Today' },
+  //  { name: 'Cost calculation.xlsx', size: '1.1 MB', date: 'Today' },
+   // { name: 'Development proposal.pdf', size: '2.7 MB', date: 'Today' },
+ //   { name: 'Purchase of equipment.docx', size: '2.7 MB', date: 'Yesterday' }
+ // ];
 
   // Sample data for recent tasks
-  recentTasks = [
-    { name: '✔ Construction Confirmation.pdf', status: 'approved', note: 'Approved today – Sam Fisher' },
-    { name: '✖ Purchase.xlsx', status: 'rejected', note: 'Rejected today – Sam Fisher' },
-    { name: '⚠ Sale of equipment.pdf', status: 'pending', note: 'Pending – Jim Boni' },
-    { name: '✔ Equipment purchase.xlsx', status: 'approved', note: 'Approved today – Tom Jinom' }
-  ];
+ // recentTasks = [
+ //   { name: '✔ Construction Confirmation.pdf', status: 'approved', note: 'Approved today – Sam Fisher' },
+  //  { name: '✖ Purchase.xlsx', status: 'rejected', note: 'Rejected today – Sam Fisher' },
+  //  { name: '⚠ Sale of equipment.pdf', status: 'pending', note: 'Pending – Jim Boni' },
+  //  { name: '✔ Equipment purchase.xlsx', status: 'approved', note: 'Approved today – Tom Jinom' }
+ // ];
 
   // Button click handlers
   markPending(record: any) {
@@ -69,12 +69,12 @@ export class AdminComponent implements OnInit {
   }
 
   //  total number of records
-  getTotalRecords() {
-    return this.pendingRecords.length;
-  }
+ // getTotalRecords() {
+ //   return this.pendingRecords.length;
+ // }
 
   // total number of tasks
-  getTotalTasks() {
-    return this.recentTasks.length;
-  }
+ //  getTotalTasks() {
+  //  return this.recentTasks.length;
+//  }
 }
