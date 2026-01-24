@@ -38,17 +38,27 @@
   <div class="admin-container">
     <h2 class="dashboard-title">Pending Record</h2>
 
-    <!-- STATISTICS SECTION -->
-    <div class="statistics">
-      <div class="stat-card">
-        <h4>Total Completed</h4>
-        <p>{{ getTotalCompleted() }}</p>
-      </div>
-      <div class="stat-card">
-        <h4>Total Pending</h4>
-        <p>{{ getTotalPending() }}</p>
-      </div>
-    </div>
+ <!-- STATISTICS SECTION -->
+<div class="statistics">
+  <div class="stat-card">
+    <h4>Total Completed</h4>
+    <p>{{ getTotalCompleted() }}</p>
+  </div>
+  <div class="stat-card">
+    <h4>Total Pending</h4>
+    <p>{{ getTotalPending() }}</p>
+  </div>
+  <!-- Add Total Approved -->
+  <div class="stat-card">
+    <h4>Total Approved</h4>
+    <p>{{ getTotalApproved() }}</p>
+  </div>
+  <!-- Add Total Rejected -->
+  <div class="stat-card">
+    <h4>Total Rejected</h4>
+    <p>{{ getTotalRejected() }}</p>
+  </div>
+</div>
 
     <!-- PENDING RECORD TABLES 2x2 GRID -->
     <div class="table-grid">
@@ -159,3 +169,4 @@
     </div>
   </div>
 </div>
+
