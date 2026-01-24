@@ -58,23 +58,24 @@ export class AdminComponent implements OnInit {
     alert(`Marked as completed: ${record.name}`);
   }
 
-  // completed records
+  // Get total completed records
   getTotalCompleted() {
     return this.pendingRecords.filter(record => record.status === 'completed').length;
   }
 
-  // pending records
+  // Get total pending records
   getTotalPending() {
     return this.pendingRecords.filter(record => record.status === 'pending').length;
   }
 
-  //  total number of records
- // getTotalRecords() {
- //   return this.pendingRecords.length;
- // }
+  // Get total approved records
+  getTotalApproved() {
+    return this.pendingRecords.filter(record => record.status === 'approved').length;
+  }
 
-  // total number of tasks
- //  getTotalTasks() {
-  //  return this.recentTasks.length;
-//  }
+  // Get total rejected records
+  getTotalRejected() {
+    return this.pendingRecords.filter(record => record.status === 'rejected').length;
+  }
 }
+
