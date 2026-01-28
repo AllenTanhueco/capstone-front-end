@@ -8,6 +8,8 @@ import { CommunityComponent } from './community/community.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { ProfileComponent } from './profile/profile.component';
 import { AdminComponent } from './admin/admin.component';
+import { MainadminComponent } from './mainadmin/mainadmin.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 export const routes: Routes = [
@@ -20,5 +22,7 @@ export const routes: Routes = [
   { path: 'documents', component: DocumentsComponent }, 
   { path: 'profile', component: ProfileComponent },  
   { path: 'admin', component: AdminComponent },  
+  { path: 'mainadmin', component: MainadminComponent},
+  { path: 'contact', component: ContactComponent},
   { path: '**', redirectTo: '' }
 ];

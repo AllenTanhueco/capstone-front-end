@@ -12,6 +12,8 @@ import { CommunityComponent } from './app/community/community.component';
 import { DocumentsComponent } from './app/documents/documents.component';
 import { ProfileComponent } from './app/profile/profile.component';
 import { AdminComponent } from './app/admin/admin.component';
+import { MainadminComponent } from './app/mainadmin/mainadmin.component';
+import { ContactComponent } from './app/contact/contact.component';
 
 bootstrapApplication(AppComponent, {
   providers: [provideRouter(routes)]

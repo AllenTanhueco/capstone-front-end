@@ -84,5 +84,5 @@ export class CommunityComponent implements OnInit, OnDestroy {
    ngOnDestroy(): void {
      if (this.intervalId) clearInterval(this.intervalId);
    }
- }
+ } 
 

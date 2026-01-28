@@ -12,7 +12,7 @@
   position: relative;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 .sidebar {
   width: 120px;
   background: #f7f7f7;
@@ -20,14 +20,13 @@
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  position: sticky; 
+  position: sticky;
   top: 0;
   height: 100vh;
   z-index: 100;
   border-right: 1px solid #ddd;
 }
 
-/* Sidebar Logo */
 .sidebar-logo {
   margin-bottom: 25px;
   padding-bottom: 15px;
@@ -37,30 +36,33 @@
   width: 80px;
 }
 
-/* Sidebar Buttons */
 .side-btn {
   background: none;
   border: none;
   color: #df5757;
   width: 100%;
-  padding: 40px 0; 
+  padding: 40px 0;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px; 
+  gap: 25px;
   font-size: 20px;
   transition: background 0.3s;
+  text-decoration: none; 
 }
 
 .side-btn i {
   font-size: 25px;
+  text-decoration: none;
+  border: none;         
 }
 
 .side-btn:hover,
 .side-btn.active {
   background: rgba(223, 87, 87, 0.1);
   font-weight: bold;
+  text-decoration: none;
 }
 
 /* MAIN CONTENT AREA */

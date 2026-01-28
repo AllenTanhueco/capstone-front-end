@@ -1,0 +1,86 @@
+<div class="app-container">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+      </div>
+  
+      <a class="side-btn" routerLink="/" routerLinkActive="active">
+        <i class="fas fa-house"></i>
+        <span>Home</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/documents" routerLinkActive="active">
+        <i class="fas fa-file"></i>
+        <span>Documents</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/contact" routerLinkActive="active">
+        <i class="fas fa-phone"></i>
+        <span>Hotline</span>
+      </a>
+  
+      <a class="side-btn" routerLink="/profile" routerLinkActive="active">
+        <i class="fas fa-user"></i>
+        <span>Profile</span>
+      </a>
+    </aside>
+  
+    <!-- MAIN CONTENT -->
+    <main class="contact-bg">
+
+        <!-- BACKGROUND CAROUSEL -->
+        <div class="bg-carousel">
+          <div class="bg-slide"
+               *ngFor="let slide of slides; let i = index"
+               [class.active]="i === currentIndex">
+            <div class="bg-blur"
+                 [style.backgroundImage]="'url(' + slide + ')'"></div>
+            <div class="bg-image"
+                 [style.backgroundImage]="'url(' + slide + ')'"></div>
+          </div>
+        </div>
+      
+        <!-- 🔥 HOTLINE SECTION (SINGLE OUTPUT) -->
+        <section class="hotline-container">
+          <h1>Emergency Hotlines</h1>
+          <p class="subtitle">Call Immediately During Emergencies</p>
+      
+          <div class="hotline-list">
+            <div class="hotline-card" *ngFor="let hotline of hotlines">
+              <i class="fa-solid {{ hotline.icon }}"></i>
+      
+              <div class="hotline-info">
+                <h3>{{ hotline.name }}</h3>
+      
+                <!-- Mobile numbers -->
+                <a *ngFor="let num of hotline.numbers"
+                   href="tel:{{ num }}">
+                  📱 {{ num }}
+                </a>
+      
+                <!-- Landline (ACDRRMO only) -->
+                <a *ngIf="hotline.landline"
+                   href="tel:{{ hotline.landline }}">
+                  ☎️ {{ hotline.landline }}
+                </a>
+      
+                <!-- Messenger (ACDRRMO only) -->
+                <a *ngIf="hotline.messenger"
+                   [href]="hotline.messenger"
+                   target="_blank"
+                   rel="noopener">
+                  💬 Message us 
+                </a>
+              </div>
+            </div>
+          </div>
+        </section>
+      
+      </main>
+      
+  </div>
+  

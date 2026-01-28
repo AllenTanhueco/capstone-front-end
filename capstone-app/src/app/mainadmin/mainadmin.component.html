@@ -1,0 +1,128 @@
+<div class="app-container">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-logo">
+        <img src="/images/angeles_city_logo.png" alt="Logo" />
+      </div>
+  
+ <!-- Home button as a proper router link -->
+ <a class="side-btn" routerLink="/" routerLinkActive="active">
+  <i class="fas fa-house"></i>
+  <span>Home</span>
+</a>
+
+<a class="side-btn" routerLink="/documents" routerLinkActive="active">
+  <i class="fas fa-file"></i>
+  <span>Documents</span>
+</a>
+
+<a class="side-btn" routerLink="/contact" routerLinkActive="active">
+  <i class="fas fa-phone"></i>
+  <span>Hotline</span>
+</a>
+
+<a class="side-btn" routerLink="/profile" routerLinkActive="active">
+  <i class="fas fa-user"></i>
+  <span>Profile</span>
+      </a>
+    </aside>
+  
+    <main class="main-content">
+      <mat-card-content>
+        <div class="admin-container">
+    
+          <!-- Pending User Requests Table -->
+          <div class="table-container">
+            <h3 class="table-title">Pending User Requests</h3>
+            <table mat-table [dataSource]="userRequests" class="custom-table">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Name </th>
+                <td mat-cell *matCellDef="let user" class="table-cell"> {{ user.name }} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Action </th>
+                <td mat-cell *matCellDef="let user" class="table-cell">
+                  <button mat-raised-button color="primary" (click)="acceptUser(user)" class="btn-action">Accept</button>
+                  <button mat-raised-button color="warn" (click)="rejectUser(user)" class="btn-action">Reject</button>
+                </td>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="userDisplayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: userDisplayedColumns;"></tr>
+            </table>
+          </div>
+    
+          <!-- Completed Documents Table -->
+          <div class="table-container">
+            <h3 class="table-title">Completed Documents</h3>
+            <table mat-table [dataSource]="documents" class="custom-table">
+              <ng-container matColumnDef="documentName">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Document </th>
+                <td mat-cell *matCellDef="let document" class="table-cell"> {{ document.name }} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Status </th>
+                <td mat-cell *matCellDef="let document" class="table-cell">
+                  <span [ngClass]="{
+                    'status-approved': document.status === 'Approved',
+                    'status-rejected': document.status === 'Rejected',
+                    'status-pending': document.status === 'Pending'
+                  }">
+                    {{ document.status }}
+                  </span>
+                </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Action </th>
+                <td mat-cell *matCellDef="let document" class="table-cell">
+                  <button mat-raised-button color="primary" (click)="approveDocument(document)" class="btn-action">Approve</button>
+                  <button mat-raised-button color="warn" (click)="rejectDocument(document)" class="btn-action">Reject</button>
+                  <button mat-raised-button color="accent" (click)="pendingDocument(document)" class="btn-action">Pending</button>
+                </td>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="documentDisplayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: documentDisplayedColumns;"></tr>
+            </table>
+          </div>
+    
+          <!-- Admin Users Table -->
+          <div class="table-container">
+            <h3 class="table-title">Admin Users</h3>
+            <table mat-table [dataSource]="adminUsers" class="custom-table">
+              <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Name </th>
+                <td mat-cell *matCellDef="let admin" class="table-cell"> {{ admin.name }} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="role">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Role </th>
+                <td mat-cell *matCellDef="let admin" class="table-cell"> {{ admin.role }} </td>
+              </ng-container>
+    
+              <ng-container matColumnDef="action">
+                <th mat-header-cell *matHeaderCellDef class="header-cell"> Action </th>
+                <td mat-cell *matCellDef="let admin" class="table-cell">
+                  <button mat-raised-button color="primary" (click)="editAdmin(admin)" class="btn-action">Edit</button>
+                  <button mat-raised-button color="warn" (click)="deleteAdmin(admin)" class="btn-action">Delete</button>
+                </td>
+              </ng-container>
+    
+              <tr mat-header-row *matHeaderRowDef="adminDisplayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: adminDisplayedColumns;"></tr>
+            </table>
+          </div>
+    
+        </div>
+      </mat-card-content>
+    </main>
+    
+    
+    
+  </div>
+  
