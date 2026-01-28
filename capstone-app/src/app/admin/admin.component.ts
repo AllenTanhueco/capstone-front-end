@@ -30,6 +30,8 @@ export class AdminComponent implements OnInit {
   ];
 
 
+
+
   // Button click handlers
   markPending(record: any) {
     alert(`Marked as pending: ${record.name}`);
@@ -63,3 +65,4 @@ export class AdminComponent implements OnInit {
     return this.pendingRecords.filter(record => record.status === 'rejected').length;
   }
 }
+
