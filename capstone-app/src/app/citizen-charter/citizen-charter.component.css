@@ -272,7 +272,7 @@
   }
   
   .charter-card {
-    background: #e0f000;
+    background: #f3f3f3;
     padding: 35px 30px;
     margin-bottom: 30px;
     border-radius: 12px;
@@ -283,7 +283,7 @@
   
   .charter-card h2 {
     font-size: 30px;
-    color: #e0f000;
+    color: #f02400;
     margin-bottom: 20px;
     font-weight: bold;
   }
@@ -421,5 +421,53 @@
     .service-list li {
       font-size: 16px;
     }
+  }
+  
+  /* Citizen-Charter */
+
+  .charter-card {
+    background: #f3f3f3;
+    padding: 20px 25px;
+    margin-bottom: 15px;
+    border-radius: 12px;
+    border-left: 6px solid #b30000;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  .charter-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .charter-card-header h3 {
+    font-size: 22px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .charter-card-header i {
+    font-size: 18px;
+    color: #b30000;
+    transition: transform 0.3s ease;
+  }
+  
+  .charter-card-body {
+    padding-top: 15px;
+    font-size: 18px;
+    color: #444;
+  }
+  
+  .charter-card-body ul {
+    padding-left: 20px;
+    margin-top: 10px;
+  }
+  
+  .charter-card-body li {
+    margin-bottom: 8px;
+    list-style-type: disc;
   }
   

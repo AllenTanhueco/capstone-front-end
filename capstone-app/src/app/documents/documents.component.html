@@ -35,17 +35,24 @@
   <!-- DOCUMENTS CONTENT -->
   <section class="documents-page">
     <h2 class="page-title">Available Documents</h2>
-
+  
     <div class="documents-list">
       <div *ngFor="let doc of documents" class="document-card">
+  
         <h3>{{ doc.name }}</h3>
-        <p>Click to view the document.</p>
-
-        <button class="view-btn" (click)="viewDocument(doc.file)">
-          View Document
-        </button>
+  
+        <div class="document-actions">
+          <button class="view-btn"
+                  (click)="viewDocument(doc.file)">
+            View Requirements
+          </button>
+  
+          <button class="apply-btn"
+                  (click)="applyForDocument(doc.applyRoute)">
+            Apply
+          </button>
+        </div>
       </div>
     </div>
   </section>
-
 </div>

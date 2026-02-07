@@ -19,24 +19,34 @@ export class ProfileComponent {
     gender: '',
     address: '',
     contact: '',
-    documentRequested: ''
+    email: '',
+    password: '',
+    newPassword: '',
+    confirmNewPassword: '',
   };
 
   submitted = false;
 
-  // Track all document requests
-  documentHistory: Array<{document: string, requestedAt: Date}> = [];
+  // Toggle variables for showing/hiding passwords
+  showNewPassword = false;
+  showConfirmPassword = false;
+
+
 
   submitProfile() {
-    this.submitted = true;
-
-    if (this.profile.documentRequested) {
-      this.documentHistory.push({
-        document: this.profile.documentRequested,
-        requestedAt: new Date()
-      });
+    if (this.profile.newPassword !== this.profile.confirmNewPassword) {
+      alert("New Password and Confirm New Password do not match.");
+      return;
     }
+  
+  
+    this.profile.password = this.profile.newPassword;
+  
+    this.submitted = true;
+  
 
-    console.log(this.documentHistory);
+    this.profile.newPassword = '';
+    this.profile.confirmNewPassword = '';
   }
+  
 }

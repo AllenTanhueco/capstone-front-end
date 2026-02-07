@@ -1,3 +1,6 @@
+/* =========================================
+   GLOBAL RESET
+========================================= */
 * {
   margin: 0;
   padding: 0;
@@ -5,146 +8,88 @@
   font-family: Arial, sans-serif;
 }
 
-/* APP LAYOUT */
+/* =========================================
+   APP LAYOUT
+========================================= */
 .app-container {
   display: flex;
   min-height: 100vh;
-  position: relative;
 }
 
-/* ================= SIDEBAR ================= */
+/* =========================================
+   SIDEBAR
+========================================= */
 .sidebar {
   width: 120px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
   background: #f7f7f7;
+  border-right: 1px solid #ddd;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding-top: 30px;
-  position: sticky;
-  top: 0;
-  height: 100vh;
   z-index: 100;
-  border-right: 1px solid #ddd;
-}
-
-.sidebar-logo {
-  margin-bottom: 25px;
-  padding-bottom: 15px;
 }
 
 .sidebar-logo img {
   width: 80px;
+  margin-bottom: 25px;
 }
 
 .side-btn {
-  background: none;
-  border: none;
-  color: #df5757;
   width: 100%;
-  padding: 40px 0;
-  cursor: pointer;
+  padding: 35px 0;
+  text-decoration: none;
+  color: #df5757;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
-  font-size: 20px;
+  gap: 18px;
+  font-size: 18px;
   transition: background 0.3s;
-  text-decoration: none; 
 }
 
 .side-btn i {
-  font-size: 25px;
-  text-decoration: none;
-  border: none;         
+  font-size: 24px;
 }
 
 .side-btn:hover,
 .side-btn.active {
   background: rgba(223, 87, 87, 0.1);
   font-weight: bold;
-  text-decoration: none;
 }
 
-/* MAIN CONTENT AREA */
+/* =========================================
+   MAIN CONTENT
+========================================= */
 .landing-bg {
   flex: 1;
+  background: #d3cdcd;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   position: relative;
-  background-color: #d3cdcd;
 }
 
-/* Centered watermark logo behind content */
+/* Watermark */
 .landing-bg::before {
   content: "";
-  position: fixed; 
+  position: fixed;
   inset: 0;
-  background-image: url('/images/angeles_city_logo.png');
-  background-size: 50%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  opacity: 0.60;
-  z-index: 0;
+  background: url('/images/angeles_city_logo.png') center/50% no-repeat;
+  opacity: 0.12;
   pointer-events: none;
+  z-index: 0;
 }
 
-/* ===== CAROUSEL (TOP SECTION) ===== */
-.bg-carousel {
-  position: relative;
-  width: 100%;
-  height: 550px; 
-  background: #000;
-  overflow: hidden;
-  z-index: 5;
-}
-
-.bg-slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 1.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bg-slide.active {
-  opacity: 1;
-}
-
-.bg-blur {
-  position: absolute;
-  inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: blur(25px);
-  opacity: 0.5;
-  transform: scale(1.1);
-}
-
-.bg-image {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  z-index: 2;
-}
-
-/* PAGE CONTENT SECTIONS */
-.landing-header,
-.hero,
-.features,
-.landing-footer {
-  position: relative;
-  z-index: 10;
-}
-
+/* =========================================
+   HEADER
+========================================= */
 .landing-header {
   text-align: center;
-  margin: 40px 0;
+  margin: 40px 0 20px;
+  z-index: 1;
 }
 
 .landing-header img {
@@ -153,220 +98,416 @@
 }
 
 .landing-header h1 {
-  font-size: 90px;
+  font-size: 48px;
   color: #f44336;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-family: 'Gill Sans', Calibri, sans-serif;
 }
 
 .subtitle {
-  font-size: 60px;
+  font-size: 30px;
   font-weight: 700;
-  color: #080808;
-  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
-/* HERO SECTION */
-.hero {
+/* =========================================
+   HERO BANNER
+========================================= */
+.hero-banner {
   background: #f44336;
   color: #fff;
-  padding: 40px 30px;
-  width: 90%;
-  max-width: 1000px;
+  padding: 15px;
+  width: 95%;
+  max-width: 1300px;
+  margin: 0 auto 30px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 1;
+}
+
+.hero-banner h2 {
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+/* =========================================
+   DASHBOARD GRID
+========================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 30px;
+  width: 95%;
+  max-width: 1350px;
   margin: 0 auto 50px;
-  text-align: center;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  z-index: 1;
 }
 
-.hero-img {
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Section pill */
+.section-anchor {
+  background: #f44336;
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 50px;
+  font-weight: bold;
+  align-self: center;
+}
+
+/* =========================================
+   ANNOUNCEMENT CARDS
+========================================= */
+.info-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.info-card img {
   width: 100%;
-  max-height: 400px;
-  object-fit: contain;
-  margin-bottom: 25px;
+  height: 250px;
+  object-fit: cover;
 }
 
-/* FEATURES SECTION */
-.features {
+.card-content {
+  padding: 20px;
+}
+
+.card-content h4 {
+  color: #b30000;
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+.date {
+  font-size: 12px;
+  color: #888;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* =========================================
+   CITIZEN'S CHARTER
+========================================= */
+.charter-container {
   display: flex;
-  justify-content: center;
-  gap: 30px; 
-  flex-wrap: wrap;
-  padding: 0 20px 60px;
+  flex-direction: column;
+  gap: 25px;
 }
 
-/* FEATURES SECTION */
-.features {
-  display: flex;
-  justify-content: center;
-  gap: 35px; 
-  flex-wrap: wrap;
-  padding: 0 20px 70px; 
-}
-
-/* FEATURE CARDS */
-.feature-card {
-  background: #f0f0f0;
-  width: 350px; 
-  padding: 50px 25px; 
+.white-block {
+  background: #fff;
+  padding: 25px;
   border-radius: 12px;
-  text-align: center;
-  border-top: 5px solid #f44336; 
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); 
-  transition: transform 0.25s, box-shadow 0.25s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  border-top: 4px solid #b30000;
 }
 
-.feature-card h3 {
-  font-size: 30px; 
+.white-block h3 {
+  font-size: 17px;
+  color: #b30000;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 8px;
   margin-bottom: 15px;
-  color: #b30000;
-  font-weight: bold;
+  text-transform: uppercase;
 }
 
-.feature-card p {
-  font-size: 30px; 
-  color: #b30000;
-  line-height: 1.6;
-  font-weight: bold;
-}
-
-/* CLICKABLE CARD HOVER */
-.feature-card.clickable {
-  cursor: pointer;
-}
-
-.feature-card.clickable:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 28px rgba(241, 6, 6, 0.2);
-}
-
-/* FOOTER */
-.landing-footer {
-  padding: 30px;
+.white-block p,
+.white-block li {
   font-size: 14px;
-  color: #666;
-  text-align: center;
-  background: #f9f9f9;
-  margin-top: auto;
+  color: #555;
+  line-height: 1.5;
 }
 
-/* =================== RESPONSIVE DESIGN =================== */
+/* Documents */
+.document-list {
+  display: flex;
+  flex-direction: column;
+}
 
-/* MOBILE - 320px and above */
-@media screen and (max-width: 768px) {
+.doc-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.doc-item:last-child {
+  border-bottom: none;
+}
+
+.doc-item span {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.doc-item a {
+  color: #f44336;
+  font-size: 12px;
+  font-weight: bold;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.doc-item a:hover {
+  color: #b30000;
+}
+
+/* =========================================
+   VISION & MISSION TEXT
+========================================= */
+
+
+/* Section titles */
+.white-block h3 {
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  color: #b30000;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+}
+
+/* Vision paragraph */
+.white-block p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 18px;
+  text-align: justify;
+  font-weight: bold;
+}
+
+/* Mission list */
+.white-block ul {
+  margin-top: 10px;
+  padding-left: 22px;
+  font-weight: bold;
+}
+
+/* Mission bullet items */
+.white-block li {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: #444;
+  margin-bottom: 10px;
+  text-align: justify;
+}
+
+/* Custom bullet color */
+.white-block li::marker {
+  color: #f44336;
+  font-weight: bold;
+}
+
+/* Subtle emphasis for key words  */
+.white-block strong {
+  color: #b30000;
+  font-weight: 700;
+}
+
+/* =========================================
+   CATEGORY TAG
+========================================= */
+.category-tag {
+  display: inline-block;
+  background: rgba(244, 67, 54, 0.12); /* soft red */
+  color: #b30000;
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  padding: 5px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+}
+
+
+/* === EMERGENCY HOTLINES ======== */
+  
+
+.hotline-section {
+  width: 95%;
+  max-width: 1350px;
+  margin: 50px auto 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hotline-section .section-anchor {
+  margin-bottom: 25px;
+  text-align: center;
+  align-self: center;
+}
+
+.hotline-block {
+  width: 100%;
+  max-width: 1000px;
+  background: #fff; 
+  padding: 25px;
+  border-radius: 12px;
+  border-top: 4px solid #b30000;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center; 
+  position: relative;
+  z-index: 1;
+  
+}
+
+/* Note text */
+.hotline-note {
+  font-size: 24px;
+  color: #555;
+  font-weight: 600;
+  margin-bottom: 20px;
+  text-align: center;
+  width: auto;
+}
+
+/* Hotline cards container */
+.hotline-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; 
+  gap: 20px;
+  width: 100%;
+}
+
+/* Individual hotline card */
+.hotline-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+  padding: 18px 20px;
+  width: 300px;
+  background: #f0eded;
+  border-radius: 12px;
+  border-left: 4px solid #f44336;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+  text-align: center; 
+}
+
+.hotline-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Icon */
+.hotline-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(244, 67, 54, 0.12);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.hotline-icon i {
+  color: #b30000;
+  font-size: 20px;
+}
+
+/* Info */
+.hotline-info h4 {
+  font-size: 20px;
+  color: #b30000;
+  margin-bottom: 8px;
+}
+
+.hotline-info a {
+  display: block;
+  font-size: 18px;
+  color: #333;
+  text-decoration: none;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.hotline-info a:hover {
+  color: #f44336;
+  text-decoration: underline;
+}
+
+/* =========================================
+   RESPONSIVE HOTLINES
+========================================= */
+@media (max-width: 768px) {
+  .hotline-card {
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 12px;
+  }
+
+  .hotline-icon {
+    margin-bottom: 0;
+    margin-right: 12px;
+  }
+
+  .hotline-info h4,
+  .hotline-info a {
+    text-align: left;
+  }
+
+  .hotline-block {
+    text-align: left; 
+    align-items: flex-start;
+  }
+}
+
+
+
+/* =========================================
+   FOOTER
+========================================= */
+.landing-footer {
+  padding: 20px;
+  font-size: 12px;
+  text-align: center;
+  background: rgba(255,255,255,0.85);
+  border-top: 1px solid #ccc;
+  margin-top: auto;
+  z-index: 1;
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+@media (max-width: 1100px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
   .sidebar {
-    width: 95px; 
+    width: 95px;
   }
 
   .side-btn {
-    padding: 20px 0;
-    gap: 10px; 
-    font-size: 16px;
-  }
-
-  .side-btn i {
-    font-size: 20px; /* icon size */
-  }
-
-  .landing-header h1 {
-    font-size: 28px; 
-  }
-
-  .hero {
-    padding: 30px 20px; 
-  }
-
-  .feature-card {
-    width: 100%; /* full width on mobile */
-    padding: 25px 20px;
-  }
-
-  .feature-card h3 {
-    font-size: 20px;
-  }
-
-  .feature-card p {
+    padding: 22px 0;
     font-size: 15px;
   }
-}
-
-/* TABLET - 768px to 1024px */
-@media screen and (min-width: 768px) and (max-width: 1024px) {
-  .sidebar {
-    width: 100px; 
-  }
-
-  .side-btn {
-    padding: 25px 0; 
-    gap: 12px;
-    font-size: 18px;
-  }
-
-  .side-btn i {
-    font-size: 22px; 
-  }
 
   .landing-header h1 {
-    font-size: 30px; 
+    font-size: 28px;
   }
 
-  .hero {
-    padding: 35px 25px;
-  }
-
-  .features {
-    gap: 30px;
-  }
-
-  .feature-card {
-    width:350px;      /* wider on tablet */
-    min-height: 150px; /* taller for more content */
-    padding: 38px 28px;
-}
-
-  .feature-card h3 {
-    font-size: 22px;
-  }
-
-  .feature-card p {
-    font-size: 16px;
-  }
-
-}
-
-/* DESKTOP - 1024px and above */
-@media screen and (min-width: 1024px) {
-  .sidebar {
-    width: 110px; 
-  }
-
-  .side-btn {
-    padding: 30px 0;
-    gap: 12px;
+  .subtitle {
     font-size: 20px;
-  }
-
-  .side-btn i {
-    font-size: 25px;
-  }
-
-  .landing-header h1 {
-    font-size: 34px;
-  }
-
-  .hero {
-    padding: 40px 30px;
-  }
-
-  .feature-card {
-    width: 320px;
-    padding: 40px 30px;
-  }
-
-  .feature-card h3 {
-    font-size: 24px;
-  }
-
-  .feature-card p {
-    font-size: 17px;
   }
 }

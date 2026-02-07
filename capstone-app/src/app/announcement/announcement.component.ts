@@ -17,11 +17,7 @@ interface Announcement {
   styleUrls: ['./announcement.component.css']
 })
 export class AnnouncementComponent implements OnInit, OnDestroy {
-  slides = [
-    '/images/angeles_city.png',
-    '/images/acdrrmo-hotline.png',
-    '/images/angeles_city_logo.png'
-  ];
+ 
   currentIndex = 0;
   private intervalId: any;
 
@@ -53,20 +49,11 @@ export class AnnouncementComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      this.startCarousel(); // background carousel auto-slide
+ 
     }
   }
 
-  // Background image carousel
-  startCarousel(): void {
-    this.intervalId = setInterval(() => {
-      this.nextSlide();
-    }, 2000);
-  }
 
-  nextSlide(): void {
-    this.currentIndex = (this.currentIndex + 1) % this.slides.length;
-  }
 
   // Announcement carousel getter
   get currentAnnouncement(): Announcement {

@@ -30,12 +30,7 @@
 
   <main class="landing-bg">
 
-    <div class="bg-carousel">
-      <div class="bg-slide" *ngFor="let slide of slides; let i = index" [class.active]="i === currentIndex">
-        <div class="bg-blur" [style.backgroundImage]="'url(' + slide + ')'"></div>
-        <div class="bg-image" [style.backgroundImage]="'url(' + slide + ')'"></div>
-      </div>
-    </div>
+   
 
     <header class="landing-header">
       <img src="/images/angeles_city_logo.png" alt="Logo" />

@@ -8,17 +8,18 @@
     padding: 20px; 
 }
 
+
 .bg-image {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('/images/angeles_city_bg.png'); /* Replace with your image */
+  background-image: url('/images/angeles_city_bg.png'); 
   background-size: cover;
   background-position: center;
-  filter: blur(10px); /* Adjust blur amount here */
-  transform: scale(1.1); /* Prevents white edges from the blur */
+  filter: blur(10px);
+  transform: scale(1.1);
   z-index: -1;
 }
 
@@ -53,7 +54,7 @@
 
 /* Logo at the top */
 .logo {
-    width: 250px;
+    width: 130px;
     margin-bottom: 1px;
 }
 
@@ -77,14 +78,16 @@
 /* Red login card - Fixed width and centering */
 .login-box {
     background: #f44336; 
-    width: 100%; /* Better for responsiveness */
-    max-width: 400px; /* Keeps it the size you wanted */
+    width: 100%; 
+    min-height: 400px;
+    max-width: 800px;  
     padding: 30px 25px;
-    border-radius: 10px;
+    border-radius: 30px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
 }
 
+  
 /* Form layout */
 .form-box {
     display: flex;
@@ -105,7 +108,7 @@
 .input-with-icon {
     position: relative;
     width: 100%;
-    max-width: 400px; /* Match your login box width */
+    max-width: 400px; 
     margin-bottom: 15px;
     display: flex;
     justify-content: center;
@@ -113,7 +116,7 @@
 /* Inputs */
 .input-with-icon input {
     width: 100%;
-    padding: 12px 45px 12px 16px; /* Extra right padding (45px) for the eye */
+    padding: 12px 45px 12px 16px;
     border-radius: 20px;
     border: none;
     outline: none;
@@ -142,20 +145,20 @@
 /* Positioning the Eye Icon */
 .password-toggle {
     position: absolute;
-    right: 15px; /* Distance from the right edge */
+    right: 15px;
     top: 50%;
     transform: translateY(-50%);
     cursor: pointer;
-    color: #555; /* Muted color for the icon */
+    color: #555; 
     font-size: 18px;
     display: flex;
     align-items: center;
     transition: color 0.2s;
-    z-index: 2; /* Ensure it stays above the input */
+    z-index: 2;
 }
 
 .password-toggle:hover {
-    color: #f44336; /* Changes to red when you hover */
+    color: #f44336; 
 }
 
 /* Error messages */
@@ -167,7 +170,7 @@
 /* Form Options - Center the links to match the button */
 .form-options {
     width: 100%;
-    text-align: center; /* Changed from left to center */
+    text-align: center; 
     margin-bottom: 20px;
 }
 
@@ -211,7 +214,7 @@
 }
 
 .register-text a {
-    color: #fff;
+    color: #000;
     font-weight: 600;
     text-decoration: none;
     margin-left: 3px;
@@ -220,3 +223,105 @@
 .register-text a:hover {
     text-decoration: underline;
 }
+
+
+/* Tablet */
+@media (max-width: 1024px) {
+
+    .city-title,
+    .welcome-text {
+      font-size: 26px;
+      text-align: center;
+    }
+  
+    .logo {
+      width: 110px;
+    }
+  
+    .login-box {
+      max-width: 600px;
+      padding: 25px 20px;
+    }
+  
+    .input-with-icon {
+      max-width: 360px;
+    }
+  
+    .input-with-icon input {
+      font-size: 16px;
+      padding: 10px 40px 10px 14px;
+    }
+  
+    .login-btn {
+      font-size: 18px;
+      padding: 10px 25px;
+    }
+  
+    .form-options a,
+    .register-text {
+      font-size: 18px;
+    }
+  }
+
+  /* Mobile */
+
+  @media (max-width: 600px) {
+
+    .login-bg {
+      padding: 15px;
+    }
+  
+    .city-title {
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+  
+    .welcome-text {
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+  
+    .logo {
+      width: 90px;
+      margin-bottom: 5px;
+    }
+  
+    .login-box {
+      width: 100%;
+      max-width: 100%;
+      border-radius: 20px;
+      padding: 20px 15px;
+    }
+  
+    .login-title {
+      font-size: 18px;
+    }
+  
+    .input-with-icon {
+      max-width: 100%;
+    }
+  
+    .input-with-icon input {
+      font-size: 15px;
+      padding: 10px 38px 10px 12px;
+    }
+  
+    .password-toggle {
+      font-size: 16px;
+    }
+  
+    .login-btn {
+      width: 100%;
+      font-size: 18px;
+      padding: 12px;
+    }
+  
+    .form-options a {
+      font-size: 16px;
+    }
+  
+    .register-text {
+      font-size: 16px;
+    }
+  }
+  
