@@ -135,12 +135,12 @@ html, body {
 .table-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);  /* Two columns */
-  gap: 20px;  /* Space between the tables */
+  gap: 20px;  /* Space between  tables */
 }
 
 .card {
   background: rgba(255,255,255,0.95);
-  padding: 15px;
+  padding: 20px 25px;
   border-radius: 8px;
   box-shadow: 0 15px 40px rgba(0,0,0,0.25);
 }
@@ -174,8 +174,9 @@ html, body {
 .records-table td:last-child {
   display: flex;
   justify-content: center;
+  align-items: center; /* Align vertically */
   gap: 6px;
-  flex-wrap: wrap;
+  flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 
@@ -183,14 +184,15 @@ html, body {
    
 .btn {
   padding: 6px 10px;
-  min-width: 80px;
+  min-width: 80px;   /* Consistent width */
   font-size: 13px;
   border-radius: 4px;
   border: none;
   cursor: pointer;
   color: white;
+  text-align: center; /* Ensure text is centered */
+  white-space: nowrap; /* Prevent text from wrapping */
 }
-
 .btn.pending {
   background: #f0ad4e;
 }
@@ -203,6 +205,14 @@ html, body {
   background: #28a745;
 }
 
+.btn.approved {
+  background: #007bff; /* blue */
+}
+
+.btn.rejected {
+  background: #dc3545; /* red */
+}
+  
 
 .bottom-section {
   display: grid;

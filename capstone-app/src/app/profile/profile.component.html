@@ -17,10 +17,6 @@
       <span>Documents</span>
     </a>
 
-    <a class="side-btn" routerLink="/contact" routerLinkActive="active">
-      <i class="fas fa-phone"></i>
-      <span>Hotline</span>
-    </a>
 
     <a class="side-btn" routerLink="/profile" routerLinkActive="active">
       <i class="fas fa-user"></i>
@@ -35,18 +31,19 @@
     <form class="profile-form" (ngSubmit)="submitProfile()">
       <div class="form-group">
         <label>Last Name</label>
-        <input type="text" [(ngModel)]="profile.firstName" name="firstName" required placeholder="Enter first name" />
-      </div>
-
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" [(ngModel)]="profile.middleName" name="middleName" placeholder="Enter middle name" />
-      </div>
-
-      <div class="form-group">
-        <label>Middle Name</label>
         <input type="text" [(ngModel)]="profile.lastName" name="lastName" required placeholder="Enter last name" />
       </div>
+      
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" [(ngModel)]="profile.firstName" name="firstName" required placeholder="Enter first name" />
+      </div>
+      
+      <div class="form-group">
+        <label>Middle Name</label>
+        <input type="text" [(ngModel)]="profile.middleName" name="middleName" placeholder="Enter middle name" />
+      </div>
+      
 
       <div class="form-group">
         <label>Birthdate</label>

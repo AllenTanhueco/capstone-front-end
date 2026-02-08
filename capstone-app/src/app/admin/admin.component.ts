@@ -23,27 +23,46 @@ export class AdminComponent implements OnInit {
 
   // Sample data for pending records
   pendingRecords = [
-    { name: 'Construction contract', class: 'Proposal', dueDate: '20.05.2023', owner: 'Chris Green', status: 'pending' },
-    { name: 'Application for leave', class: 'Application', dueDate: '16.04.2023', owner: 'Paul Benn', status: 'completed' },
-    { name: 'Suggestion for improvement', class: 'Proposal', dueDate: '13.04.2023', owner: 'Chris Green', status: 'pending' },
-    { name: 'Offer for sale', class: 'Proposal', dueDate: '04.02.2023', owner: 'Mike Prino', status: 'completed' }
+    { 
+      name: 'Birth Certificate', 
+      release: '20.05.2023',
+      registrant: 'Chris Green', 
+        status: 'pending' },
+
+    { name: 'Death Certificate',
+    release: '16.04.2023',
+    registrant: 'Paul Benn',
+       status: 'completed' },
+
+    { name: 'Issuance of Marriage Contract',
+    release: '13.04.2023',
+    registrant: 'Chris Green',
+        status: 'pending' },
+      
+    { name: 'Issuance of Certified True Copy of Birth, Marriage, Death and Other Registry Documents', 
+     release: '04.02.2023',
+     registrant: 'Mike Prino', 
+      status: 'completed' }
   ];
-
-
 
 
   // Button click handlers
   markPending(record: any) {
-    alert(`Marked as pending: ${record.name}`);
+    record.status = 'pending';
   }
-
-  markRecorded(record: any) {
-    alert(`Recorded: ${record.name}`);
-  }
-
+  
   markCompleted(record: any) {
-    alert(`Marked as completed: ${record.name}`);
+    record.status = 'completed';
   }
+  
+  markRecorded(record: any) {
+    record.status = 'rejected'; 
+  }
+  
+  markApproved(record: any) {
+    record.status = 'approved';
+  }
+  
 
   // Get total completed records
   getTotalCompleted() {
